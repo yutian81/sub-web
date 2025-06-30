@@ -139,7 +139,7 @@
 }
 
 .dark-mode .el-collapse-item__header {
-  background: 0 0 !important;
+  background: rgba(60, 60, 60, 0.5) !important;
   border-bottom: none !important;
   height: auto !important;
 }
