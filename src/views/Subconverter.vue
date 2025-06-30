@@ -476,6 +476,7 @@ export default {
         customBackend: {
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://url.v1.mk",
           "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",
+          "yutian81后爪自建后端":"https://subapi.dayutian.com"
           "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
           nameless13提供: "https://www.nameless13.com",
           subconverter作者提供: "https://sub.xeton.dev",
@@ -485,6 +486,7 @@ export default {
         backendOptions: [
           {value: "https://url.v1.mk"},
           {value: "https://sub.d1.mk"},
+          {value: "https://subapi.dayutian.com"},
           {value: "https://api.tsutsu.one"},
           {value: "https://www.nameless13.com"},
           {value: "https://sub.xeton.dev"},
@@ -526,6 +528,27 @@ export default {
               {
                 label: "流媒体通用分组",
                 value: "https://raw.githubusercontent.com/cutethotw/ClashRule/main/GeneralClashRule.ini"
+              }
+            ]
+          },
+          {
+            label: "yutian81优化",
+            options: [
+              {
+                label: "【推荐】简单分流+国家分组（负载均衡）",
+                value: "https://raw.githubusercontent.com/yutian81/edgetunnel-cmliu/main/clash-config/mini_country_balance_eu.ini"
+              },
+              {
+                label: "简单分流+无国家分组（负载均衡）",
+                value: "https://raw.githubusercontent.com/yutian81/edgetunnel-cmliu/main/clash-config/mini_balance.ini"
+              },              
+              {
+                label: "流媒体+国家分组（自动测速）",
+                value: "https://raw.githubusercontent.com/yutian81/edgetunnel-cmliu/main/clash-config/full_country_autotest.ini"
+              },
+              {
+                label: "流媒体+国家分组（负载均衡）",
+                value: "https://raw.githubusercontent.com/yutian81/edgetunnel-cmliu/main/clash-config/full_country_balance_eu.ini"
               }
             ]
           },
