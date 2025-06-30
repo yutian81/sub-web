@@ -10,7 +10,7 @@ var mouseX = 0, mouseY = 0,
             camera, scene, renderer;
 
             init();
-            // animate();
+            animate();
 
             function init() {
                 /*
