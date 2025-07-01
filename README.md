@@ -5,6 +5,7 @@
 - 去除了的弹窗和提示信息
 - 修改了前端网页的logo
 - 修改了前端网页的背景图片
+- 修改了夜间模式的显示效果
 - 加入了我自己的后端和转换配置文件
 
 后端采用[asdlokj1qpi233大佬](https://github.com/asdlokj1qpi233/subconverter)的版本，部署在爪云容器
