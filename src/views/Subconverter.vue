@@ -267,6 +267,7 @@
     </el-row>
     <el-dialog
         title="请选择需要观看的视频教程"
+        :modal-append-to-body="false"
         :visible.sync="centerDialogVisible"
         :show-close="false"
         width="40vh"
@@ -301,6 +302,7 @@
       </div>
     </el-dialog>
     <el-dialog
+        :modal-append-to-body="false"
         :visible.sync="dialogUploadConfigVisible"
         :show-close="false"
         :close-on-click-modal="false"
@@ -388,6 +390,7 @@
       </el-tabs>
     </el-dialog>
     <el-dialog
+        :modal-append-to-body="false"
         :visible.sync="dialogLoadConfigVisible"
         :show-close="false"
         :close-on-click-modal="false"
