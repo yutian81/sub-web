@@ -221,7 +221,8 @@
                     style="width: 120px"
                     type="danger"
                     @click="makeUrl"
-                    :disabled="form.sourceSubUrl.length === 0 || btnBoolean"
+                    :disabled="form.sourceSubUrl.length === 0"
+                    //:disabled="form.sourceSubUrl.length === 0 || btnBoolean"
                 >生成订阅链接
                 </el-button>
                 <el-button
