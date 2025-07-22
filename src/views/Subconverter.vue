@@ -268,7 +268,7 @@
     <el-dialog
         title="请选择需要观看的视频教程"
         :visible.sync="centerDialogVisible"
-        :show-close="false"
+        //:show-close="false"
         width="40vh"
         top="30vh"
         center>
@@ -302,9 +302,9 @@
     </el-dialog>
     <el-dialog
         :visible.sync="dialogUploadConfigVisible"
-        :show-close="false"
-        :close-on-click-modal="false"
-        :close-on-press-escape="false"
+        //:show-close="false"
+        //:close-on-click-modal="false"
+        //:close-on-press-escape="false"
         width="80%"
     >
       <el-tabs v-model="activeName" type="card">
@@ -389,9 +389,9 @@
     </el-dialog>
     <el-dialog
         :visible.sync="dialogLoadConfigVisible"
-        :show-close="false"
-        :close-on-click-modal="false"
-        :close-on-press-escape="false"
+        //:show-close="false"
+        //:close-on-click-modal="false"
+        //:close-on-press-escape="false"
         width="80%"
     >
       <div slot="title">
