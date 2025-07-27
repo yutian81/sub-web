@@ -966,8 +966,8 @@ export default {
     //this.tanchuang();
     this.form.clientType = "clash";
     this.getBackendVersion();
-    this.initTwikoo();
     this.anhei();
+    this.initTwikoo();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
     let darkMedia = window.matchMedia('(prefers-color-scheme: dark)');
     let callback = (e) => {
