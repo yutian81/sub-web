@@ -89,20 +89,7 @@
     z-index: 10;
   }
   
-  /* 标准按钮 */
-  .tk-action-item {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    min-height: 36px;
-    padding: 6px 8px;
-    background: var(--twikoo-button-bg);
-    border: 1px solid var(--twikoo-border);
-    border-radius: 4px;
-    flex-shrink: 0; /* 防止按钮挤压 */
-  }
-  
-  /* 选择除最后两个外的所有按钮 */
+  /* 选择除最后三个外的所有按钮 */
   .tk-row.actions > :not(:nth-last-child(-n+3)) {
     order: 1; /* 左侧组 */
     margin-right: auto; /* 左对齐 */
@@ -117,6 +104,7 @@
   /* 容器启用弹性换行 */
   .tk-row.actions {
     display: flex;
+    gap: 12px;
     flex-wrap: wrap;
   }
   
