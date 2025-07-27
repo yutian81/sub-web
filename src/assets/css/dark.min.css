@@ -82,12 +82,11 @@
   /* 选择除最后三个外的所有按钮 */
   .tk-row.actions > :not(:nth-last-child(-n+3)) {
     order: 1; /* 左侧组 */
-    margin-left: auto; /* 右对齐 */
   }
   
   /* 选择最后两个按钮 */
   .tk-row.actions > :nth-last-child(-n+3) {
-    order: 2; /* 右侧组 */
+    order: 3; /* 右侧组 */
     margin-left: auto; /* 右对齐 */
   }
   
