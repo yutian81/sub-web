@@ -1414,7 +1414,7 @@ export default {
       script.onload = () => {
         // 初始化Twikoo
         twikoo.init({
-          envId: 'https://waline.24811213.xyz/',
+          envId: 'https://twikoo.24811213.xyz/',
           el: '#tcomment',
           path: window.location.pathname,
           // 配置选项
