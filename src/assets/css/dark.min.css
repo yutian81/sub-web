@@ -79,16 +79,6 @@
 
 /* Twikoo 移动端操作栏优化 */
 @media (max-width: 768px) {
-  /* 操作栏容器*/
-  .tk-actions {
-    display: flex !important;
-    flex-direction: column; /* 垂直排列 */
-    gap: 12px; /* 增加行间距 */
-    padding: 10px 0;
-    position: relative;
-    z-index: 10;
-  }
-  
   /* 选择除最后三个外的所有按钮 */
   .tk-row.actions > :not(:nth-last-child(-n+3)) {
     order: 1; /* 左侧组 */
