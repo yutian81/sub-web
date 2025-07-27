@@ -1003,7 +1003,8 @@ export default {
       if (getLocalTheme) {
         document.getElementsByTagName('body')[0].className = getLocalTheme;
         this.updateCommentVisibility(getLocalTheme);  // 更新评论可见性
-      } else if (getLocalTheme == null || getLocalTheme == "undefined" || getLocalTheme == "") {
+      } 
+      else if (getLocalTheme == null || getLocalTheme == "undefined" || getLocalTheme == "") {
         if (new Date().getHours() >= 19 || new Date().getHours() < 7) {
           document.getElementsByTagName('body')[0].setAttribute('class', 'dark-mode');
         } else {
