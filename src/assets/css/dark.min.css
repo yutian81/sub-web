@@ -91,12 +91,14 @@
     flex-shrink: 0; /* 防止压缩 */
   }
 
-  /* 除了最后3个的按钮 => 第一行，靠左 */
+  /* 除了最后3个的按钮 => 第一行 */
   .tk-row.actions > :not(:nth-last-child(-n+3)) {
     order: 1;
+    margin-left: auto;
+    transform: translateX(50px);
   }
 
-  /* 最后3个按钮 => 第二行，靠右 */
+  /* 最后3个按钮 => 第二行 */
   .tk-row.actions > :nth-last-child(-n+3) {
     order: 2;
   }
