@@ -89,7 +89,7 @@
   /* 选择除最后三个外的所有按钮 */
   .tk-row.actions > :not(:nth-last-child(-n+3)) {
     order: 1; /* 左侧组 */
-    margin-left: 0;
+    margin-left: 50px;
   }
   
   /* 选择最后两个按钮 */
