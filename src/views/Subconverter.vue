@@ -1406,7 +1406,7 @@ export default {
           .catch(() => {
             this.$message.error("请求后端版本号失败，该后端不可用或网络连接异常！");
           });
-    }
+    },
     initTwikoo() {
       // 动态加载Twikoo JS
       const script = document.createElement('script');
