@@ -429,7 +429,7 @@
           <div slot="header">
             <div style="text-align:center;font-size:15px">评 论 留 言</div>
           </div>
-          <div id="tcomment"></div>
+          <div id="tcomment" class="comment-container"></div>
         </el-card>
       </el-col>
     </el-row>
@@ -1440,49 +1440,13 @@ export default {
 
 <style scoped>
 /* 给评论区适配暗黑模式 */
-.dark-mode #tcomment {
-  --twikoo-bgcolor: #1e1e1e !important; /* 深色背景 */
-  --twikoo-color: #ffffff !important; /* 主要文字颜色 */
-  --twikoo-secondary: #b0b0b0 !important; /* 次要文字颜色 */
-  --twikoo-border-color: #444 !important; /* 边框颜色 */
+.dark-mode .comment-container,
+.dark-mode .comment-container * {
+  color: #ffffff !important; /* 所有文字变为白色 */
 }
 
-/* 覆盖所有文字颜色为白色 */
-.dark-mode #tcomment * {
-  color: #ffffff !important;
-}
-
-/* 特别处理输入框和按钮 */
-.dark-mode #tcomment input,
-.dark-mode #tcomment textarea,
-.dark-mode #tcomment button {
-  background-color: #2d2d2d !important;
-  color: #ffffff !important;
-  border-color: #444 !important;
-}
-
-/* 处理代码块和引用 */
-.dark-mode #tcomment pre,
-.dark-mode #tcomment code,
-.dark-mode #tcomment blockquote {
-  background-color: #2a2a2a !important;
-  border-color: #444 !important;
-}
-
-/* 处理链接颜色 */
-.dark-mode #tcomment a {
-  color: #42b983 !important; /* 保持与主题一致 */
-}
-
-/* 处理表情选择器 */
-.dark-mode #tcomment .twikoo-emoji-picker {
-  background-color: #2d2d2d !important;
-  border-color: #444 !important;
-}
-
-/* 处理预览区域 */
-.dark-mode #tcomment .twikoo-preview {
-  background-color: #2d2d2d !important;
-  border-color: #444 !important;
+/* 确保背景色适配 */
+.dark-mode .comment-container {
+  background-color: #1e1e1e !important;
 }
 </style>
