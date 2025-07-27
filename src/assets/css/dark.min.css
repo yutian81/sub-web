@@ -92,84 +92,47 @@
   /* 第一行：表情/上传按钮组 - 左对齐 */
   .tk-row.actions:first-child {
     display: flex !important;
-    justify-content: flex-start; /* 左对齐 */
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* 禁止换行 */
+    overflow-x: auto; /* 允许水平滚动 */
     gap: 8px;
     width: 100%;
+    padding-left: 50px; /* 精确对齐头像 */
+    padding-right: 10px;
   }
   
   /* 第二行：预览/发送按钮组 - 右对齐 */
   .tk-row.actions:last-child {
     display: flex !important;
-    justify-content: flex-end; /* 右对齐 */
+    justify-content: flex-end;
     align-items: center;
     gap: 12px;
     width: 100%;
-    margin-top: 8px;
+    padding-right: 10px; /* 精确对齐输入框 */
+    margin-top: 5px;
   }
   
-  /* 单个操作按钮 */
+  /* 标准按钮 */
   .tk-action-item {
     display: flex !important;
     align-items: center;
-    min-width: 44px;
-    min-height: 44px;
-    padding: 8px;
+    justify-content: center;
+    min-height: 36px;
+    padding: 6px 8px;
     background: var(--twikoo-button-bg);
     border: 1px solid var(--twikoo-border);
-    border-radius: 6px;
-  }
-  
-  /* 按钮图标 */
-  .tk-icon {
-    width: 24px !important;
-    height: 24px !important;
-    display: block !important;
-  }
-  
-  /* 表情选择器容器 */
-  .tk-owo {
-    position: absolute;
-    bottom: 100%;
-    left: 0; /* 与头像左对齐 */
-    width: 100%;
-    max-width: 300px; /* 限制最大宽度 */
-    background: var(--twikoo-bg);
-    border: 1px solid var(--twikoo-border);
-    border-radius: 8px;
-    padding: 10px;
-    z-index: 20;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-  
-  /* 上传按钮 */
-  .tk-action-upload {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* 文件输入 */
-  .tk-action-upload input[type="file"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
+    border-radius: 4px;
+    flex-shrink: 0; /* 防止按钮挤压 */
   }
   
   /* 预览和发送按钮 */
   .tk-preview-btn, 
   .tk-submit-btn {
-    min-width: 80px !important; /* 增加宽度 */
-    height: 44px !important;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px !important;
-    font-weight: bold !important;
+    min-width: 70px !important;
+    height: 36px !important;
+    font-size: 14px !important;
+    padding: 0 12px !important;
   }
   
   /* 用户头像对齐参考 */
