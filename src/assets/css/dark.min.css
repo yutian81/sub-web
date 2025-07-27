@@ -83,6 +83,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    justify-content: center;
   }
 
   /* 所有按钮统一基础样式 */
@@ -104,7 +105,7 @@
   .tk-row.actions::before {
     content: '';
     flex-basis: 100%;
-    order: 2; /* 在右侧按钮前换行 */
+    order: 1.5; /* 在右侧按钮前换行 */
   }
 
   .tk-row.actions > :nth-last-child(-n+3):first-child {
