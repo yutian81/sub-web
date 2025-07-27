@@ -83,7 +83,7 @@
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   
   /* 选择除最后三个外的所有按钮 */
@@ -100,7 +100,7 @@
   
   /* 容器启用弹性换行 */
   .tk-row.actions {
-    display: flex;
+    display: flex !important;
     gap: 12px;
     flex-wrap: wrap;
   }
