@@ -1409,6 +1409,12 @@ export default {
           });
     },
     initTwikoo() {
+      // 只在明亮模式下启用评论
+      const bodyClass = document.getElementsByTagName('body')[0].className;
+      if (bodyClass !== 'light-mode') {
+        console.log("当前非 light-mode，评论功能未启用");
+        return;
+      }
       // 动态加载Twikoo JS
       const script = document.createElement('script');
       script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
