@@ -964,6 +964,7 @@ export default {
   },
   mounted() {
     //this.tanchuang();
+    this.initTwikoo();
     this.form.clientType = "clash";
     this.getBackendVersion();
     this.anhei();
