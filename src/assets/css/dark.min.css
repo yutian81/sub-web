@@ -79,31 +79,36 @@
 
 /* Twikoo 移动端操作栏优化 */
 @media (max-width: 768px) {
-.tk-row.actions {
+  .tk-row.actions {
     display: flex;
-    gap: 12px;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    gap: 12px;
   }
-  
-  /* 选择除最后三个外的所有按钮 */
+
+  /* 所有按钮统一基础样式 */
+  .tk-row.actions > * {
+    flex-shrink: 0; /* 防止压缩 */
+  }
+
+  /* 除了最后3个的按钮 => 第一行，靠左 */
   .tk-row.actions > :not(:nth-last-child(-n+3)) {
-    order: 1; /* 左侧组 */
-    margin-left: 50px;
+    order: 1;
   }
-  
-  /* 选择最后两个按钮 */
+
+  /* 最后3个按钮 => 第二行，靠右 */
   .tk-row.actions > :nth-last-child(-n+3) {
-    order: 2; /* 右侧组 */
-    margin-left: auto; /* 右对齐 */
+    order: 2;
   }
-  
-  /* 创建两行空间 */
-  .tk-row.actions::after {
+
+  /* 使用空元素占位，将第二行按钮推到右侧 */
+  .tk-row.actions::before {
     content: '';
-    width: 100%;
-    order: 3;
-    height: 0; /* 防止额外空间 */
+    flex-basis: 100%;
+    order: 2; /* 在右侧按钮前换行 */
+  }
+
+  .tk-row.actions > :nth-last-child(-n+3):first-child {
+    margin-left: auto; /* 推到右边 */
   }
 }
 
