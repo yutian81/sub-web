@@ -953,6 +953,7 @@ export default {
       uploadScript: "",
       uploadConfig: "",
       myBot: tgBotLink,
+      commentInitialized: false,
       filterConfig: filterConfigSample,
       scriptConfig: scriptConfigSample,
       sampleConfig: remoteConfigSample
@@ -966,19 +967,23 @@ export default {
     //this.tanchuang();
     this.form.clientType = "clash";
     this.getBackendVersion();
-    this.initTwikoo();
     this.anhei();
+    this.initTwikoo();
+    
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
     let darkMedia = window.matchMedia('(prefers-color-scheme: dark)');
-    let callback = (e) => {
-      if (e.matches) {
-        this.anhei();
-      }
+    
+    const callback = () => {
+      this.anhei();
+      this.initTwikoo(); // 每次主题变化都尝试加载评论（会自动判断是否需要）
     };
-    if (typeof darkMedia.addEventListener === 'function' || typeof lightMedia.addEventListener === 'function') {
-      lightMedia.addEventListener('change', callback);
+    
+    if (typeof darkMedia.addEventListener === 'function') {
       darkMedia.addEventListener('change', callback);
-    } //监听系统主题，自动切换！
+    }
+    if (typeof lightMedia.addEventListener === 'function') {
+      lightMedia.addEventListener('change', callback);
+    }
   },
   methods: {
     selectChanged() {
@@ -1415,7 +1420,12 @@ export default {
         console.log("当前为 dark-mode，评论功能未启用");
         return;
       }
-
+      // 避免重复加载
+      if (this.commentInitialized) {
+        console.log("评论已初始化，无需重复加载");
+        return;
+      }
+      
       // 动态加载 Twikoo JS
       const script = document.createElement('script');
       script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
@@ -1429,6 +1439,7 @@ export default {
           comment: true,
           pageview: true,
         });
+        this.commentInitialized = true; // 标记已初始化
       };
       document.head.appendChild(script);
     }
