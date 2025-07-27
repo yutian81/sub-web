@@ -108,15 +108,6 @@
   .tk-row.actions > :nth-last-child(4) {
     display: none;
   }
-
-  /* 使用空元素占位，分成两行 */
-  /*
-  .tk-row.actions::before {
-    content: '';
-    flex-basis: 100%;
-    order: 1.5;
-  }
-  */
 }
 
 /* ======================= */
