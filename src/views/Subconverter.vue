@@ -429,7 +429,7 @@
           <div slot="header">
             <div style="text-align:center;font-size:15px">评 论 留 言</div>
           </div>
-          <div id="tcomment" class="comment-container"></div>
+          <div id="tcomment"></div>
         </el-card>
       </el-col>
     </el-row>
@@ -1421,15 +1421,8 @@ export default {
           // 补充可选参数
           visitor: true, // 启用访问量统计
           lang: 'zh-CN',
-          // 更多可选配置
           comment: true, // 启用评论功能
           pageview: true, // 显示页面浏览量
-          placeholder: '在这里留下您的想法...', // 自定义占位符
-          avatar: 'robohash', // 头像生成方式
-          avatarCDN: 'https://cravatar.cn/avatar/', // 国内头像CDN
-          uploadImage: true, // 允许上传图片
-          highlight: true, // 代码高亮
-          math: true, // 启用数学公式支持
         });
       };
       document.head.appendChild(script);
@@ -1439,14 +1432,45 @@ export default {
 </script>
 
 <style scoped>
-/* 给评论区适配暗黑模式 */
-.dark-mode .comment-container,
-.dark-mode .comment-container * {
-  color: #ffffff !important; /* 所有文字变为白色 */
+/* 基础暗黑模式适配 */
+.dark-mode #tcomment {
+  --twikoo-bgcolor: #1e1e1e !important;
+  color: #ffffff !important;
 }
 
-/* 确保背景色适配 */
-.dark-mode .comment-container {
-  background-color: #1e1e1e !important;
+/* 表单标签颜色适配 */
+.dark-mode #tcomment .tk-label {
+  color: #ffffff !important;
+}
+
+/* 输入框文字颜色 */
+.dark-mode #tcomment input,
+.dark-mode #tcomment textarea {
+  color: #ffffff !important;
+}
+
+/* 按钮文字颜色 */
+.dark-mode #tcomment .tk-actions button {
+  color: #ffffff !important;
+}
+
+/* 图标颜色适配 */
+.dark-mode #tcomment .twikoo-icon svg {
+  fill: #ffffff !important;
+}
+
+/* 表情选择器文字 */
+.dark-mode #tcomment .twikoo-emoji-picker {
+  color: #ffffff !important;
+}
+
+/* 表情选择器标签 */
+.dark-mode #tcomment .twikoo-emoji-picker .twikoo-emoji-name {
+  color: #ffffff !important;
+}
+
+/* 预览按钮文字 */
+.dark-mode #tcomment .twikoo-preview-btn {
+  color: #ffffff !important;
 }
 </style>
