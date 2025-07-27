@@ -1002,7 +1002,7 @@ export default {
       
       if (getLocalTheme) {
         document.getElementsByTagName('body')[0].className = getLocalTheme;
-        this.updateCommentVisibility(getLocalTheme);  // 更新评论可见性
+        this.updateCommentVisibility(getLocalTheme); // 更新评论可见性
       } 
       else if (getLocalTheme == null || getLocalTheme == "undefined" || getLocalTheme == "") {
         if (new Date().getHours() >= 19 || new Date().getHours() < 7) {
@@ -1018,6 +1018,7 @@ export default {
         } //根据窗口主题来判断当前主题！
         document.getElementsByTagName('body')[0].setAttribute('class', theme);
         this.updateCommentVisibility(theme);  // 更新评论可见性
+        }
       }
     },
     // 根据主题更新评论可见性
