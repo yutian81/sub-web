@@ -423,7 +423,7 @@
     </el-dialog>
 
     <!-- 添加评论区 -->
-    <el-row v-show="showComments" style="margin-top: 30px">  <!-- 添加v-show绑定 -->
+    <el-row style="margin-top: 30px">
       <el-col>
         <el-card>
           <div slot="header">
@@ -456,8 +456,8 @@ export default {
       backendVersion: "",
       centerDialogVisible: false,
       activeName: 'first',
-      showComments: true,  // 控制评论区显示状态
-      isPC: true, // 是否为 PC 端
+      // 是否为 PC 端
+      isPC: true,
       btnBoolean: false,
       options: {
         clientTypes: {
@@ -966,8 +966,8 @@ export default {
     //this.tanchuang();
     this.form.clientType = "clash";
     this.getBackendVersion();
-    this.anhei();
     this.initTwikoo();
+    this.anhei();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
     let darkMedia = window.matchMedia('(prefers-color-scheme: dark)');
     let callback = (e) => {
@@ -999,11 +999,9 @@ export default {
       const getLocalTheme = window.localStorage.getItem("localTheme");
       const lightMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)');
       const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-      
       if (getLocalTheme) {
         document.getElementsByTagName('body')[0].className = getLocalTheme;
-        this.updateCommentVisibility(getLocalTheme); // 更新评论可见性
-      } 
+      } //读取localstorage，优先级最高！
       else if (getLocalTheme == null || getLocalTheme == "undefined" || getLocalTheme == "") {
         if (new Date().getHours() >= 19 || new Date().getHours() < 7) {
           document.getElementsByTagName('body')[0].setAttribute('class', 'dark-mode');
@@ -1016,27 +1014,17 @@ export default {
         if (darkMode && darkMode.matches) {
           document.getElementsByTagName('body')[0].setAttribute('class', 'dark-mode');
         } //根据窗口主题来判断当前主题！
-        document.getElementsByTagName('body')[0].setAttribute('class', theme);
-        this.updateCommentVisibility(theme);  // 更新评论可见性
-        }
       }
     },
-    // 根据主题更新评论可见性
-    updateCommentVisibility(theme) {
-      this.showComments = !theme.includes('dark-mode');
-    },
-    
     change() {
       var zhuti = document.getElementsByTagName('body')[0].className;
       if (zhuti === 'light-mode') {
         document.getElementsByTagName('body')[0].setAttribute('class', 'dark-mode');
         window.localStorage.setItem('localTheme', 'dark-mode');
-        this.showComments = false;  // 切换到暗黑模式时隐藏评论
       }
       if (zhuti === 'dark-mode') {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
-        this.showComments = true;  // 切换到亮色模式时显示评论
       }
     },
     //tanchuang() {
@@ -1421,23 +1409,22 @@ export default {
           });
     },
     initTwikoo() {
-      // 只在亮色模式下初始化Twikoo
-      if (this.showComments) {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
-        script.onload = () => {
-          twikoo.init({
-            envId: 'https://twikoo.24811213.xyz/',
-            el: '#tcomment',
-            path: window.location.pathname,
-            visitor: true,
-            lang: 'zh-CN',
-            comment: true,
-            pageview: true,
-          });
-        };
-        document.head.appendChild(script);
-      }
+      // 动态加载 Twikoo JS
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
+      script.onload = () => {
+        twikoo.init({
+          envId: 'https://twikoo.24811213.xyz/',
+          el: '#tcomment',
+          path: window.location.pathname,
+          visitor: true,
+          lang: 'zh-CN',
+          comment: true,
+          pageview: true,
+        });
+      };
+      document.head.appendChild(script);
     }
+  }
 };
 </script>
