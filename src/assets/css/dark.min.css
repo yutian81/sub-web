@@ -83,7 +83,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    /* justify-content: center; */
   }
 
   /* 所有按钮统一基础样式 */
@@ -95,13 +94,17 @@
   .tk-row.actions > :nth-child(-n+2) {
     order: 1;
     margin-left: auto;
-    transform: translateX(50px);
+    transform: translateX(70px);
   }
 
   /* 最后3个按钮 => 第二行 */
-  .tk-row.actions > :nth-last-child(-n+3) {
+  .tk-row.actions > :nth-last-child(-n+2) {
     order: 2;
     margin-left: auto;
+  }
+
+  .tk-row.actions > :nth-last-child(3) {
+    display: none;
   }
 
   /* 使用空元素占位，分成两行 */
