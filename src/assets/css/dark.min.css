@@ -95,6 +95,7 @@
   .tk-row.actions > :nth-child(-n+2) {
     order: 1;
     margin-left: auto;
+    transform: translateX(50px);
   }
 
   /* 最后3个按钮 => 第二行 */
