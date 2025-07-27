@@ -1,17 +1,6 @@
 /* ====================== */
-/* 全局变量定义 (新增部分) */
+/* Twikoo明亮模式变量 */
 /* ====================== */
-:root {
-  /* 明亮模式默认值 */
-  --twikoo-bg: #ffffff;
-  --twikoo-text: #333333;
-  --twikoo-border: #e3e8f7;
-  --twikoo-button-bg: #f5f7fa;
-  --twikoo-button-text: #606266;
-  --twikoo-link: #409eff;
-  --twikoo-hover: #ecf5ff;
-}
-
 .light-mode {
   /* 强制使用明亮模式变量 */
   --twikoo-bg: #ffffff;
@@ -24,7 +13,7 @@
 }
 
 /* ====================== */
-/* Twikoo 专属样式 (新增部分) */
+/* Twikoo 明亮模式专属样式 */
 /* ====================== */
 /* 评论容器 */
 .twikoo .tk-comments-container > .tk-comment, 
@@ -85,6 +74,7 @@
   opacity: 0.7;
 }
 
+/* 以下为原始明亮模式样式 */
 * {
   touch-action: manipulation;
 }
