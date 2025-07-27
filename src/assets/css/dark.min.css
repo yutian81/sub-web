@@ -103,7 +103,7 @@
     margin-left: auto;
   }
 
-  .tk-row.actions > :nth-last-child(3) {
+  .tk-row.actions > :nth-last-child(4) {
     display: none;
   }
 
