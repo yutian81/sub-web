@@ -94,22 +94,20 @@
   /* 前3个按钮 => 第一行 */
   .tk-row.actions > :nth-child(-n+3) {
     order: 1;
+    margin-left: auto;
   }
 
   /* 最后3个按钮 => 第二行 */
   .tk-row.actions > :nth-last-child(-n+3) {
     order: 2;
+    margin-left: auto;
   }
 
   /* 使用空元素占位，将第二行按钮推到右侧 */
-  .tk-row.actions::after {
+  .tk-row.actions::before {
     content: '';
     flex-basis: 100%;
-    order: 3;
-  }
-
-  .tk-row.actions > :nth-last-child(-n+3):first-child {
-    margin-left: auto; /* 推到右边 */
+    order: 1.5;
   }
 }
 
