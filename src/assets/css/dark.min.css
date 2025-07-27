@@ -77,34 +77,44 @@
   filter: var(--twikoo-icon-filter);
 }
 
-/* ======================= */
 /* Twikoo 移动端操作栏优化 */
-/* ======================= */
 @media (max-width: 768px) {
-  /* 操作栏容器 */
+  /* 操作栏容器*/
   .tk-actions {
     display: flex !important;
-    flex-wrap: wrap; /* 允许换行 */
-    gap: 8px; /* 元素间距 */
+    flex-direction: column; /* 垂直排列 */
+    gap: 12px; /* 增加行间距 */
     padding: 10px 0;
     position: relative;
     z-index: 10;
   }
   
-  /* 按钮组容器 */
-  .tk-row.actions {
-    display: flex;
+  /* 第一行：表情/上传按钮组 - 左对齐 */
+  .tk-row.actions:first-child {
+    display: flex !important;
+    justify-content: flex-start; /* 左对齐 */
+    align-items: center;
     flex-wrap: wrap;
     gap: 8px;
-    width: 100%; /* 确保占满宽度 */
+    width: 100%;
+  }
+  
+  /* 第二行：预览/发送按钮组 - 右对齐 */
+  .tk-row.actions:last-child {
+    display: flex !important;
+    justify-content: flex-end; /* 右对齐 */
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
   }
   
   /* 单个操作按钮 */
   .tk-action-item {
     display: flex !important;
     align-items: center;
-    min-width: 44px; /* 触摸友好尺寸 */
-    min-height: 44px; /* 触摸友好尺寸 */
+    min-width: 44px;
+    min-height: 44px;
     padding: 8px;
     background: var(--twikoo-button-bg);
     border: 1px solid var(--twikoo-border);
@@ -113,23 +123,18 @@
   
   /* 按钮图标 */
   .tk-icon {
-    width: 24px !important; /* 增大尺寸 */
-    height: 24px !important; /* 增大尺寸 */
+    width: 24px !important;
+    height: 24px !important;
     display: block !important;
-    filter: var(--twikoo-icon-filter);
-  }
-  
-  /* 按钮文字 */
-  .tk-action-text {
-    display: none !important; /* 小屏幕隐藏文字 */
   }
   
   /* 表情选择器容器 */
   .tk-owo {
     position: absolute;
-    bottom: 100%; /* 显示在输入框上方 */
-    left: 0;
+    bottom: 100%;
+    left: 0; /* 与头像左对齐 */
     width: 100%;
+    max-width: 300px; /* 限制最大宽度 */
     background: var(--twikoo-bg);
     border: 1px solid var(--twikoo-border);
     border-radius: 8px;
@@ -153,6 +158,23 @@
     height: 100%;
     opacity: 0;
     cursor: pointer;
+  }
+  
+  /* 预览和发送按钮 */
+  .tk-preview-btn, 
+  .tk-submit-btn {
+    min-width: 80px !important; /* 增加宽度 */
+    height: 44px !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+  }
+  
+  /* 用户头像对齐参考 */
+  .tk-avatar {
+    margin-right: 12px; /* 为操作栏左对齐提供参考 */
   }
 }
 
