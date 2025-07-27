@@ -423,7 +423,7 @@
     </el-dialog>
 
     <!-- 添加评论区 -->
-    <el-row style="margin-top: 30px">
+    <el-row v-show="showComments" style="margin-top: 30px">  <!-- 添加v-show绑定 -->
       <el-col>
         <el-card>
           <div slot="header">
@@ -456,8 +456,8 @@ export default {
       backendVersion: "",
       centerDialogVisible: false,
       activeName: 'first',
-      // 是否为 PC 端
-      isPC: true,
+      showComments: true,  // 控制评论区显示状态
+      isPC: true, // 是否为 PC 端
       btnBoolean: false,
       options: {
         clientTypes: {
@@ -953,7 +953,6 @@ export default {
       uploadScript: "",
       uploadConfig: "",
       myBot: tgBotLink,
-      commentInitialized: false,
       filterConfig: filterConfigSample,
       scriptConfig: scriptConfigSample,
       sampleConfig: remoteConfigSample
@@ -969,21 +968,17 @@ export default {
     this.getBackendVersion();
     this.anhei();
     this.initTwikoo();
-    
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
     let darkMedia = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const callback = () => {
-      this.anhei();
-      this.initTwikoo(); // 每次主题变化都尝试加载评论（会自动判断是否需要）
+    let callback = (e) => {
+      if (e.matches) {
+        this.anhei();
+      }
     };
-    
-    if (typeof darkMedia.addEventListener === 'function') {
-      darkMedia.addEventListener('change', callback);
-    }
-    if (typeof lightMedia.addEventListener === 'function') {
+    if (typeof darkMedia.addEventListener === 'function' || typeof lightMedia.addEventListener === 'function') {
       lightMedia.addEventListener('change', callback);
-    }
+      darkMedia.addEventListener('change', callback);
+    } //监听系统主题，自动切换！
   },
   methods: {
     selectChanged() {
@@ -1004,10 +999,11 @@ export default {
       const getLocalTheme = window.localStorage.getItem("localTheme");
       const lightMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)');
       const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      
       if (getLocalTheme) {
         document.getElementsByTagName('body')[0].className = getLocalTheme;
-      } //读取localstorage，优先级最高！
-      else if (getLocalTheme == null || getLocalTheme == "undefined" || getLocalTheme == "") {
+        this.updateCommentVisibility(getLocalTheme);  // 更新评论可见性
+      } else if (getLocalTheme == null || getLocalTheme == "undefined" || getLocalTheme == "") {
         if (new Date().getHours() >= 19 || new Date().getHours() < 7) {
           document.getElementsByTagName('body')[0].setAttribute('class', 'dark-mode');
         } else {
@@ -1019,17 +1015,26 @@ export default {
         if (darkMode && darkMode.matches) {
           document.getElementsByTagName('body')[0].setAttribute('class', 'dark-mode');
         } //根据窗口主题来判断当前主题！
+        document.getElementsByTagName('body')[0].setAttribute('class', theme);
+        this.updateCommentVisibility(theme);  // 更新评论可见性
       }
     },
+    // 根据主题更新评论可见性
+    updateCommentVisibility(theme) {
+      this.showComments = !theme.includes('dark-mode');
+    },
+    
     change() {
       var zhuti = document.getElementsByTagName('body')[0].className;
       if (zhuti === 'light-mode') {
         document.getElementsByTagName('body')[0].setAttribute('class', 'dark-mode');
         window.localStorage.setItem('localTheme', 'dark-mode');
+        this.showComments = false;  // 切换到暗黑模式时隐藏评论
       }
       if (zhuti === 'dark-mode') {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
+        this.showComments = true;  // 切换到亮色模式时显示评论
       }
     },
     //tanchuang() {
@@ -1414,35 +1419,23 @@ export default {
           });
     },
     initTwikoo() {
-      // 暗黑模式下不启用评论
-      const bodyClass = document.getElementsByTagName('body')[0].className;
-      if (bodyClass === 'dark-mode') {
-        console.log("当前为 dark-mode，评论功能未启用");
-        return;
+      // 只在亮色模式下初始化Twikoo
+      if (this.showComments) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
+        script.onload = () => {
+          twikoo.init({
+            envId: 'https://twikoo.24811213.xyz/',
+            el: '#tcomment',
+            path: window.location.pathname,
+            visitor: true,
+            lang: 'zh-CN',
+            comment: true,
+            pageview: true,
+          });
+        };
+        document.head.appendChild(script);
       }
-      // 避免重复加载
-      if (this.commentInitialized) {
-        console.log("评论已初始化，无需重复加载");
-        return;
-      }
-      
-      // 动态加载 Twikoo JS
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
-      script.onload = () => {
-        twikoo.init({
-          envId: 'https://twikoo.24811213.xyz/',
-          el: '#tcomment',
-          path: window.location.pathname,
-          visitor: true,
-          lang: 'zh-CN',
-          comment: true,
-          pageview: true,
-        });
-        this.commentInitialized = true; // 标记已初始化
-      };
-      document.head.appendChild(script);
     }
-  }
 };
 </script>
