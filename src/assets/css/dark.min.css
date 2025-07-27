@@ -1,3 +1,86 @@
+/* ======================= */
+/* 新增：Twikoo 暗黑模式变量 */
+/* ======================= */
+.dark-mode {
+  /* Twikoo 特定变量 */
+  --twikoo-bg: #2c2c2c;
+  --twikoo-text: #e0e0e0;
+  --twikoo-border: #42444a;
+  --twikoo-button-bg: #363636;
+  --twikoo-button-text: #e0e0e0;
+  --twikoo-link: #66b1ff;
+  --twikoo-hover: #2c2c2c;
+  --twikoo-icon-filter: invert(0.8);
+}
+
+/* ======================= */
+/* 新增：Twikoo 专属暗黑样式 */
+/* ======================= */
+/* 评论容器 */
+.dark-mode .twikoo .tk-comments-container > .tk-comment,
+.dark-mode .twikoo .tk-comments .tk-submit {
+  background: var(--twikoo-bg);
+  color: var(--twikoo-text);
+  border: 1px solid var(--twikoo-border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* 输入区域 */
+.dark-mode .tk-input.el-textarea textarea {
+  background: var(--twikoo-bg);
+  color: var(--twikoo-text);
+  border: 1px solid var(--twikoo-border);
+  border-radius: 8px;
+}
+
+/* 按钮 */
+.dark-mode .tk-row.actions button {
+  background: var(--twikoo-button-bg);
+  color: var(--twikoo-button-text);
+  border: 1px solid var(--twikoo-border);
+}
+
+.dark-mode .tk-row.actions button:hover {
+  background: var(--twikoo-hover);
+}
+
+/* 链接 */
+.dark-mode .tk-comments-container a {
+  color: var(--twikoo-link);
+}
+
+/* 头像 */
+.dark-mode .tk-avatar {
+  border: 2px solid var(--twikoo-border);
+  filter: var(--twikoo-icon-filter);
+}
+
+/* 评论内容 */
+.dark-mode .tk-content {
+  color: var(--twikoo-text);
+}
+
+/* 回复按钮 */
+.dark-mode .tk-action-link {
+  color: var(--twikoo-link) !important;
+}
+
+/* 时间戳 */
+.dark-mode .tk-time {
+  color: var(--twikoo-text);
+  opacity: 0.7;
+}
+
+/* 图标处理 */
+.dark-mode .tk-icon {
+  filter: var(--twikoo-icon-filter);
+}
+
+/* ======================= */
+/* 以下是原有的暗黑模式CSS */
+/* ======================= */
 .dark-mode .channel {
   display: inline-block !important;
 }
