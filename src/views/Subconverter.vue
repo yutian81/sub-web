@@ -1409,26 +1409,25 @@ export default {
           });
     },
     initTwikoo() {
-      // 只在明亮模式下启用评论
+      // 暗黑模式下不启用评论
       const bodyClass = document.getElementsByTagName('body')[0].className;
-      if (bodyClass !== 'light-mode') {
-        console.log("当前非 light-mode，评论功能未启用");
+      if (bodyClass === 'dark-mode') {
+        console.log("当前为 dark-mode，评论功能未启用");
         return;
       }
-      // 动态加载Twikoo JS
+
+      // 动态加载 Twikoo JS
       const script = document.createElement('script');
       script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
       script.onload = () => {
-        // 初始化Twikoo
         twikoo.init({
           envId: 'https://twikoo.24811213.xyz/',
           el: '#tcomment',
           path: window.location.pathname,
-          // 补充可选参数
-          visitor: true, // 启用访问量统计
+          visitor: true,
           lang: 'zh-CN',
-          comment: true, // 启用评论功能
-          pageview: true, // 显示页面浏览量
+          comment: true,
+          pageview: true,
         });
       };
       document.head.appendChild(script);
