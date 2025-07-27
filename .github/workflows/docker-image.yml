@@ -37,7 +37,7 @@ jobs:
     - name: Update Docker Hub description
       run: |
         # 使用内置变量获取仓库信息
-        DESCRIPTION="修改自肥羊的订阅转换项目 | 项目仓库: https://github.com/${{ github.repository }}"
+        DESCRIPTION="修改自肥羊的订阅转换项目，项目仓库: https://github.com/${{ github.repository }}"
         REPO_NAME="${{ env.DOCKER_USER }}/${{ env.DOCKER_IMAGE }}"
         
         # 调用 Docker Hub API 更新描述
