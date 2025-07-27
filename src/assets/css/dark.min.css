@@ -98,15 +98,18 @@
   }
 
   /* 倒数2和3按钮 => 第二行 */
+  .tk-row.actions > :nth-last-child(4),
   .tk-row.actions > :nth-last-child(3),
   .tk-row.actions > :nth-last-child(2) {
     order: 2;
     margin-left: auto;
   }
 
+  /*
   .tk-row.actions > :nth-last-child(4) {
     display: none;
   }
+  */
 
   /* 使用空元素占位，分成两行 */
   .tk-row.actions::before {
