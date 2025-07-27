@@ -2,8 +2,7 @@
 /* 新增：Twikoo 暗黑模式变量 */
 /* ======================= */
 .dark-mode {
-  /* Twikoo 特定变量 */
-  --twikoo-bg: #2c2c2c;
+  --twikoo-bg: rgba(0, 0, 0, 0);
   --twikoo-text: #e0e0e0;
   --twikoo-border: #42444a;
   --twikoo-button-bg: #363636;
