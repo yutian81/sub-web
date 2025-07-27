@@ -964,9 +964,9 @@ export default {
   },
   mounted() {
     //this.tanchuang();
-    this.initTwikoo();
     this.form.clientType = "clash";
     this.getBackendVersion();
+    this.initTwikoo();
     this.anhei();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
     let darkMedia = window.matchMedia('(prefers-color-scheme: dark)');
@@ -1430,12 +1430,6 @@ export default {
           uploadImage: true, // 允许上传图片
           highlight: true, // 代码高亮
           math: true, // 启用数学公式支持
-          // 表情配置
-          emoji: [
-            'https://cdn.jsdelivr.net/gh/twikoo/twikoo@1.6.42/emoji/wechat',
-            'https://cdn.jsdelivr.net/gh/twikoo/twikoo@1.6.42/emoji/qq',
-            'https://cdn.jsdelivr.net/gh/twikoo/twikoo@1.6.42/emoji/bilibili'
-          ]
         });
       };
       document.head.appendChild(script);
@@ -1448,5 +1442,47 @@ export default {
 /* 给评论区适配暗黑模式 */
 .dark-mode #tcomment {
   --twikoo-bgcolor: #1e1e1e !important; /* 深色背景 */
+  --twikoo-color: #ffffff !important; /* 主要文字颜色 */
+  --twikoo-secondary: #b0b0b0 !important; /* 次要文字颜色 */
+  --twikoo-border-color: #444 !important; /* 边框颜色 */
+}
+
+/* 覆盖所有文字颜色为白色 */
+.dark-mode #tcomment * {
+  color: #ffffff !important;
+}
+
+/* 特别处理输入框和按钮 */
+.dark-mode #tcomment input,
+.dark-mode #tcomment textarea,
+.dark-mode #tcomment button {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border-color: #444 !important;
+}
+
+/* 处理代码块和引用 */
+.dark-mode #tcomment pre,
+.dark-mode #tcomment code,
+.dark-mode #tcomment blockquote {
+  background-color: #2a2a2a !important;
+  border-color: #444 !important;
+}
+
+/* 处理链接颜色 */
+.dark-mode #tcomment a {
+  color: #42b983 !important; /* 保持与主题一致 */
+}
+
+/* 处理表情选择器 */
+.dark-mode #tcomment .twikoo-emoji-picker {
+  background-color: #2d2d2d !important;
+  border-color: #444 !important;
+}
+
+/* 处理预览区域 */
+.dark-mode #tcomment .twikoo-preview {
+  background-color: #2d2d2d !important;
+  border-color: #444 !important;
 }
 </style>
