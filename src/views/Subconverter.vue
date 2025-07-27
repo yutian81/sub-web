@@ -1417,18 +1417,24 @@ export default {
           envId: 'https://twikoo.24811213.xyz/',
           el: '#tcomment',
           path: window.location.pathname,
-          // 配置选项
-          meta: true, // 显示评论者归属地等信息
-          pageview: true, // 显示评论计数
-          imageUploader: true, // 允许上传图片
+          // 补充可选参数
+          visitor: true, // 启用访问量统计
           lang: 'zh-CN',
-          // 可选配置
-          comment: true,
-          // 背景色配置
-          style: {
-            background: '#ffffff', // 默认白色背景
-            '--twikoo-bgcolor': '#ffffff' // 自定义变量
-          }
+          // 更多可选配置
+          comment: true, // 启用评论功能
+          pageview: true, // 显示页面浏览量
+          placeholder: '在这里留下您的想法...', // 自定义占位符
+          avatar: 'robohash', // 头像生成方式
+          avatarCDN: 'https://cravatar.cn/avatar/', // 国内头像CDN
+          uploadImage: true, // 允许上传图片
+          highlight: true, // 代码高亮
+          math: true, // 启用数学公式支持
+          // 表情配置
+          emoji: [
+            'https://cdn.jsdelivr.net/gh/twikoo/twikoo@1.6.42/emoji/wechat',
+            'https://cdn.jsdelivr.net/gh/twikoo/twikoo@1.6.42/emoji/qq',
+            'https://cdn.jsdelivr.net/gh/twikoo/twikoo@1.6.42/emoji/bilibili'
+          ]
         });
       };
       document.head.appendChild(script);
