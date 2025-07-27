@@ -1432,45 +1432,126 @@ export default {
 </script>
 
 <style scoped>
-/* 基础暗黑模式适配 */
+/* ======================== */
+/* Twikoo 评论系统暗黑模式适配 */
+/* ======================== */
+
+/* 基础容器样式 */
 .dark-mode #tcomment {
   --twikoo-bgcolor: #1e1e1e !important;
-  color: #ffffff !important;
+  color: #fff !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
-/* 表单标签颜色适配 */
+/* 表单标签 */
 .dark-mode #tcomment .tk-label {
-  color: #ffffff !important;
+  color: #fff !important;
 }
 
-/* 输入框文字颜色 */
-.dark-mode #tcomment input,
-.dark-mode #tcomment textarea {
-  color: #ffffff !important;
+/* 输入框 */
+.dark-mode #tcomment .el-input__inner,
+.dark-mode #tcomment .el-textarea__inner {
+  background: rgba(60, 60, 60, 0.5) !important;
+  color: #fff !important;
+  border-color: #303133 !important;
 }
 
-/* 按钮文字颜色 */
-.dark-mode #tcomment .tk-actions button {
-  color: #ffffff !important;
+/* 按钮 */
+.dark-mode #tcomment .el-button {
+  background: rgba(60, 60, 60, 0.5) !important;
+  border-color: #fff !important;
+  color: #fff !important;
 }
 
-/* 图标颜色适配 */
+.dark-mode #tcomment .el-button:focus,
+.dark-mode #tcomment .el-button:hover {
+  background: rgba(0, 0, 0, 0.88) !important;
+}
+
+/* 图标 */
 .dark-mode #tcomment .twikoo-icon svg {
-  fill: #ffffff !important;
+  fill: #fff !important;
 }
 
-/* 表情选择器文字 */
+/* 表情选择器 */
 .dark-mode #tcomment .twikoo-emoji-picker {
-  color: #ffffff !important;
+  background-color: rgba(60, 60, 60, 0.5) !important;
+  border-color: #303133 !important;
+  color: #fff !important;
 }
 
-/* 表情选择器标签 */
 .dark-mode #tcomment .twikoo-emoji-picker .twikoo-emoji-name {
-  color: #ffffff !important;
+  color: #fff !important;
 }
 
-/* 预览按钮文字 */
+/* 预览区域 */
+.dark-mode #tcomment .twikoo-preview {
+  background-color: rgba(60, 60, 60, 0.5) !important;
+  border-color: #303133 !important;
+  color: #fff !important;
+}
+
+/* 评论内容 */
+.dark-mode #tcomment .tk-content {
+  color: #fff !important;
+}
+
+/* 评论者信息 */
+.dark-mode #tcomment .tk-nick,
+.dark-mode #tcomment .tk-time,
+.dark-mode #tcomment .tk-tag {
+  color: #b0b0b0 !important;
+}
+
+/* 评论操作按钮 */
+.dark-mode #tcomment .tk-action-link {
+  color: #42b983 !important;
+}
+
+/* 评论列表 */
+.dark-mode #tcomment .tk-comments-container {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 评论项 */
+.dark-mode #tcomment .tk-comment {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 回复框 */
+.dark-mode #tcomment .tk-reply {
+  background-color: rgba(60, 60, 60, 0.5) !important;
+  border-color: #303133 !important;
+}
+
+/* 评论计数 */
+.dark-mode #tcomment .tk-count {
+  color: #fff !important;
+}
+
+/* 占位符文字 */
+.dark-mode #tcomment .el-textarea__inner::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* 上传按钮 */
+.dark-mode #tcomment .tk-image-button {
+  color: #fff !important;
+}
+
+/* 预览按钮 */
 .dark-mode #tcomment .twikoo-preview-btn {
-  color: #ffffff !important;
+  color: #fff !important;
+}
+
+/* 表情标签 */
+.dark-mode #tcomment .twikoo-emoji-tab {
+  color: #fff !important;
+}
+
+/* 表情分类标题 */
+.dark-mode #tcomment .twikoo-emoji-category-title {
+  color: #fff !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
 }
 </style>
