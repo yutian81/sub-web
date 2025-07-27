@@ -1433,18 +1433,23 @@ export default {
 
 <style scoped>
 /* ======================== */
-/* Twikoo 评论系统暗黑模式适配 */
+/* Twikoo 评论系统暗黑模式全面适配 */
 /* ======================== */
 
-/* 基础容器样式 */
+/* 基础容器 */
 .dark-mode #tcomment {
-  --twikoo-bgcolor: #1e1e1e !important;
   color: #fff !important;
   background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
-/* 表单标签 */
-.dark-mode #tcomment .tk-label {
+/* 表单区域 */
+.dark-mode #tcomment .tk-comment {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-color: #444 !important;
+}
+
+/* 表单标签 - 昵称、邮箱、网址 */
+.dark-mode #tcomment .tk-row .tk-label {
   color: #fff !important;
 }
 
@@ -1456,39 +1461,64 @@ export default {
   border-color: #303133 !important;
 }
 
-/* 按钮 */
+/* 占位符文字 */
+.dark-mode #tcomment .el-textarea__inner::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* 按钮区域 */
+.dark-mode #tcomment .tk-actions {
+  border-top: 1px solid #444 !important;
+}
+
+/* 所有按钮 - 包括表情、上传、预览、发送 */
+.dark-mode #tcomment .tk-action-icon,
 .dark-mode #tcomment .el-button {
-  background: rgba(60, 60, 60, 0.5) !important;
-  border-color: #fff !important;
   color: #fff !important;
+  background: transparent !important;
+  border-color: transparent !important;
 }
 
-.dark-mode #tcomment .el-button:focus,
+.dark-mode #tcomment .tk-action-icon:hover,
 .dark-mode #tcomment .el-button:hover {
-  background: rgba(0, 0, 0, 0.88) !important;
+  color: #42b983 !important;
 }
 
-/* 图标 */
+/* 图标颜色 */
 .dark-mode #tcomment .twikoo-icon svg {
   fill: #fff !important;
 }
 
-/* 表情选择器 */
-.dark-mode #tcomment .twikoo-emoji-picker {
-  background-color: rgba(60, 60, 60, 0.5) !important;
+/* 发送按钮 */
+.dark-mode #tcomment .tk-send {
+  background-color: #303133 !important;
   border-color: #303133 !important;
   color: #fff !important;
 }
 
-.dark-mode #tcomment .twikoo-emoji-picker .twikoo-emoji-name {
-  color: #fff !important;
+.dark-mode #tcomment .tk-send:hover {
+  background-color: #42b983 !important !important;
+  border-color: #42b983 !important;
 }
 
-/* 预览区域 */
-.dark-mode #tcomment .twikoo-preview {
-  background-color: rgba(60, 60, 60, 0.5) !important;
-  border-color: #303133 !important;
-  color: #fff !important;
+/* 评论内容区域 */
+.dark-mode #tcomment .tk-comments {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* 单个评论项 */
+.dark-mode #tcomment .tk-comment {
+  border-bottom: 1px solid #444 !important;
+}
+
+/* 评论者信息 */
+.dark-mode #tcomment .tk-nick {
+  color: #42b983 !important;
+}
+
+.dark-mode #tcomment .tk-time,
+.dark-mode #tcomment .tk-extras {
+  color: #b0b0b0 !important;
 }
 
 /* 评论内容 */
@@ -1496,42 +1526,24 @@ export default {
   color: #fff !important;
 }
 
-/* 评论者信息 */
-.dark-mode #tcomment .tk-nick,
-.dark-mode #tcomment .tk-time,
-.dark-mode #tcomment .tk-tag {
-  color: #b0b0b0 !important;
-}
-
-/* 评论操作按钮 */
+/* 回复按钮 */
 .dark-mode #tcomment .tk-action-link {
   color: #42b983 !important;
 }
 
-/* 评论列表 */
-.dark-mode #tcomment .tk-comments-container {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* 页脚信息 */
+.dark-mode #tcomment .tk-footer {
+  color: #b0b0b0 !important;
 }
 
-/* 评论项 */
-.dark-mode #tcomment .tk-comment {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* 表情选择器 */
+.dark-mode #tcomment .twikoo-emoji-picker {
+  background-color: #1e1e1e !important;
+  border-color: #444 !important;
 }
 
-/* 回复框 */
-.dark-mode #tcomment .tk-reply {
-  background-color: rgba(60, 60, 60, 0.5) !important;
-  border-color: #303133 !important;
-}
-
-/* 评论计数 */
-.dark-mode #tcomment .tk-count {
+.dark-mode #tcomment .twikoo-emoji-name {
   color: #fff !important;
-}
-
-/* 占位符文字 */
-.dark-mode #tcomment .el-textarea__inner::placeholder {
-  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* 上传按钮 */
@@ -1539,19 +1551,15 @@ export default {
   color: #fff !important;
 }
 
-/* 预览按钮 */
-.dark-mode #tcomment .twikoo-preview-btn {
-  color: #fff !important;
-}
-
-/* 表情标签 */
-.dark-mode #tcomment .twikoo-emoji-tab {
-  color: #fff !important;
-}
-
-/* 表情分类标题 */
-.dark-mode #tcomment .twikoo-emoji-category-title {
-  color: #fff !important;
-  background-color: rgba(0, 0, 0, 0.1) !important;
+/* 适配移动端 */
+@media (max-width: 768px) {
+  .dark-mode #tcomment .tk-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  
+  .dark-mode #tcomment .tk-label {
+    margin-bottom: 5px !important;
+  }
 }
 </style>
