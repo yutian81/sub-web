@@ -83,7 +83,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    justify-content: center;
+    /* justify-content: center; */
   }
 
   /* 所有按钮统一基础样式 */
@@ -91,11 +91,9 @@
     flex-shrink: 0; /* 防止压缩 */
   }
 
-  /* 除了最后3个的按钮 => 第一行 */
-  .tk-row.actions > :not(:nth-last-child(-n+3)) {
+  /* 前3个按钮 => 第一行 */
+  .tk-row.actions > :nth-child(-n+3) {
     order: 1;
-    margin-left: auto;
-    transform: translateX(70px);
   }
 
   /* 最后3个按钮 => 第二行 */
@@ -108,7 +106,6 @@
     content: '';
     flex-basis: 100%;
     order: 3;
-    margin: 0;
   }
 
   .tk-row.actions > :nth-last-child(-n+3):first-child {
