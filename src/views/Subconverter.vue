@@ -421,6 +421,18 @@
         </el-button>
       </div>
     </el-dialog>
+
+    <!-- 添加评论区 -->
+    <el-row style="margin-top: 30px">
+      <el-col>
+        <el-card>
+          <div slot="header">
+            <div style="text-align:center;font-size:15px">评 论 留 言</div>
+          </div>
+          <div id="tcomment"></div>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script>
@@ -480,21 +492,19 @@ export default {
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://url.v1.mk",
           "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",
           "yutian81爪云自建后端":"https://subapi.dayutian.com",
-          "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
+          "CMliu提供(负载均衡)":"https://subapi.cmliussss.net",
           nameless13提供: "https://www.nameless13.com",
           subconverter作者提供: "https://sub.xeton.dev",
           "sub-web作者提供": "https://api.wcc.best",
-          "sub作者&lhie1提供": "https://api.dler.io",
         },
         backendOptions: [
           {value: "https://url.v1.mk"},
           {value: "https://sub.d1.mk"},
           {value: "https://subapi.dayutian.com"},
-          {value: "https://api.tsutsu.one"},
+          {value: "https://subapi.cmliussss.net"},
           {value: "https://www.nameless13.com"},
           {value: "https://sub.xeton.dev"},
           {value: "https://api.wcc.best"},
-          {value: "https://api.dler.io"},
         ],
         remoteConfig: [
           {
@@ -624,8 +634,12 @@ export default {
             label: "全网搜集规则",
             options: [
               {
-                label: "常规规则",
-                value: "https://raw.githubusercontent.com/flyhigherpi/merlinclash_clash_related/master/Rule_config/ZHANG.ini"
+                label: "史迪仔-自动测速",
+                value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/Stitch.ini"
+              },
+              {
+                label: "史迪仔-负载均衡",
+                value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/Stitch-Balance.ini"
               },
               {
                 label: "酷酷自用",
@@ -633,8 +647,7 @@ export default {
               },
               {
                 label: "PharosPro无测速",
-                value:
-                    "https://subweb.s3.fr-par.scw.cloud/RemoteConfig/special/phaors.ini"
+                value: "https://subweb.s3.fr-par.scw.cloud/RemoteConfig/special/phaors.ini"
               },
               {
                 label: "分区域故障转移",
@@ -759,73 +772,59 @@ export default {
             options: [
               {
                 label: "EXFLUX",
-                value:
-                    "https://gist.github.com/jklolixxs/16964c46bad1821c70fa97109fd6faa2/raw/EXFLUX.ini"
+                value: "https://gist.github.com/jklolixxs/16964c46bad1821c70fa97109fd6faa2/raw/EXFLUX.ini"
               },
               {
                 label: "NaNoport",
-                value:
-                    "https://gist.github.com/jklolixxs/32d4e9a1a5d18a92beccf3be434f7966/raw/NaNoport.ini"
+                value: "https://gist.github.com/jklolixxs/32d4e9a1a5d18a92beccf3be434f7966/raw/NaNoport.ini"
               },
               {
                 label: "CordCloud",
-                value:
-                    "https://gist.github.com/jklolixxs/dfbe0cf71ffc547557395c772836d9a8/raw/CordCloud.ini"
+                value: "https://gist.github.com/jklolixxs/dfbe0cf71ffc547557395c772836d9a8/raw/CordCloud.ini"
               },
               {
                 label: "BigAirport",
-                value:
-                    "https://gist.github.com/jklolixxs/e2b0105c8be6023f3941816509a4c453/raw/BigAirport.ini"
+                value: "https://gist.github.com/jklolixxs/e2b0105c8be6023f3941816509a4c453/raw/BigAirport.ini"
               },
               {
                 label: "跑路云",
-                value:
-                    "https://gist.github.com/jklolixxs/9f6989137a2cfcc138c6da4bd4e4cbfc/raw/PaoLuCloud.ini"
+                value: "https://gist.github.com/jklolixxs/9f6989137a2cfcc138c6da4bd4e4cbfc/raw/PaoLuCloud.ini"
               },
               {
                 label: "WaveCloud",
-                value:
-                    "https://gist.github.com/jklolixxs/fccb74b6c0018b3ad7b9ed6d327035b3/raw/WaveCloud.ini"
+                value: "https://gist.github.com/jklolixxs/fccb74b6c0018b3ad7b9ed6d327035b3/raw/WaveCloud.ini"
               },
               {
                 label: "几鸡",
-                value:
-                    "https://gist.github.com/jklolixxs/bfd5061dceeef85e84401482f5c92e42/raw/JiJi.ini"
+                value: "https://gist.github.com/jklolixxs/bfd5061dceeef85e84401482f5c92e42/raw/JiJi.ini"
               },
               {
                 label: "四季加速",
-                value:
-                    "https://gist.github.com/jklolixxs/6ff6e7658033e9b535e24ade072cf374/raw/SJ.ini"
+                value: "https://gist.github.com/jklolixxs/6ff6e7658033e9b535e24ade072cf374/raw/SJ.ini"
               },
               {
                 label: "ImmTelecom",
-                value:
-                    "https://gist.github.com/jklolixxs/24f4f58bb646ee2c625803eb916fe36d/raw/ImmTelecom.ini"
+                value: "https://gist.github.com/jklolixxs/24f4f58bb646ee2c625803eb916fe36d/raw/ImmTelecom.ini"
               },
               {
                 label: "AmyTelecom",
-                value:
-                    "https://gist.github.com/jklolixxs/b53d315cd1cede23af83322c26ce34ec/raw/AmyTelecom.ini"
+                value: "https://gist.github.com/jklolixxs/b53d315cd1cede23af83322c26ce34ec/raw/AmyTelecom.ini"
               },
               {
                 label: "LinkCube",
-                value:
-                    "https://subweb.s3.fr-par.scw.cloud/RemoteConfig/customized/convenience.ini"
+                value: "https://subweb.s3.fr-par.scw.cloud/RemoteConfig/customized/convenience.ini"
               },
               {
                 label: "Miaona",
-                value:
-                    "https://gist.github.com/jklolixxs/ff8ddbf2526cafa568d064006a7008e7/raw/Miaona.ini"
+                value: "https://gist.github.com/jklolixxs/ff8ddbf2526cafa568d064006a7008e7/raw/Miaona.ini"
               },
               {
                 label: "Foo&Friends",
-                value:
-                    "https://gist.github.com/jklolixxs/df8fda1aa225db44e70c8ac0978a3da4/raw/Foo&Friends.ini"
+                value: "https://gist.github.com/jklolixxs/df8fda1aa225db44e70c8ac0978a3da4/raw/Foo&Friends.ini"
               },
               {
                 label: "ABCloud",
-                value:
-                    "https://gist.github.com/jklolixxs/b1f91606165b1df82e5481b08fd02e00/raw/ABCloud.ini"
+                value: "https://gist.github.com/jklolixxs/b1f91606165b1df82e5481b08fd02e00/raw/ABCloud.ini"
               },
               {
                 label: "咸鱼",
@@ -846,14 +845,6 @@ export default {
               {
                 label: "V2Pro",
                 value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/V2Pro.ini"
-              },
-              {
-                label: "史迪仔-自动测速",
-                value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/Stitch.ini"
-              },
-              {
-                label: "史迪仔-负载均衡",
-                value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/Stitch-Balance.ini"
               },
               {
                 label: "Maying",
@@ -1416,6 +1407,39 @@ export default {
             this.$message.error("请求后端版本号失败，该后端不可用或网络连接异常！");
           });
     }
+    initTwikoo() {
+      // 动态加载Twikoo JS
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
+      script.onload = () => {
+        // 初始化Twikoo
+        twikoo.init({
+          envId: 'https://waline.24811213.xyz/',
+          el: '#tcomment',
+          path: window.location.pathname,
+          // 配置选项
+          meta: true, // 显示评论者归属地等信息
+          pageview: true, // 显示评论计数
+          imageUploader: true, // 允许上传图片
+          lang: 'zh-CN',
+          // 可选配置
+          comment: true,
+          // 背景色配置
+          style: {
+            background: '#ffffff', // 默认白色背景
+            '--twikoo-bgcolor': '#ffffff' // 自定义变量
+          }
+        });
+      };
+      document.head.appendChild(script);
+    }
   }
 };
 </script>
+
+<style scoped>
+/* 给评论区适配暗黑模式 */
+.dark-mode #tcomment {
+  --twikoo-bgcolor: #1e1e1e !important; /* 深色背景 */
+}
+</style>
