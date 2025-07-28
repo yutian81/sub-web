@@ -16,12 +16,14 @@
 /* Twikoo 专属暗黑样式 */
 /* ======================= */
 /* 评论容器 */
-.dark-mode .twikoo .tk-comments-container > .tk-comment{
+.dark-mode .twikoo .tk-comments-container > .tk-comment,
+.dark-mode .twikoo .tk-comments .tk-submit{
   background: var(--twikoo-bg);
   color: var(--twikoo-text);
-  border: 1px solid var(--twikoo-border);
-  border-radius: 12px;
-  padding: 20px;
+  border: none;
+  /* border: 1px solid var(--twikoo-border); */
+  border-radius: 10px;
+  padding: 5px;
   transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
