@@ -110,6 +110,12 @@
   .tk-row.actions > :nth-last-child(4) {
     display: none;
   }
+
+  /* 表情框不被遮挡 */
+  .tk-owo-container {
+    position: relative;
+    z-index: 100;
+  }
 }
 
 /* ======================= */
