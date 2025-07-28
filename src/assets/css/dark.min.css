@@ -16,8 +16,7 @@
 /* Twikoo 专属暗黑样式 */
 /* ======================= */
 /* 评论容器 */
-.dark-mode .twikoo .tk-comments-container > .tk-comment,
-.dark-mode .twikoo .tk-comments .tk-submit {
+.dark-mode .twikoo .tk-comments-container > .tk-comment{
   background: var(--twikoo-bg);
   color: var(--twikoo-text);
   border: 1px solid var(--twikoo-border);
@@ -56,7 +55,8 @@
   filter: var(--twikoo-icon-filter);
 }
 
-/* 评论内容 */
+/* 评论内容和评论数 */
+.dark-mode .tk-comments-count,
 .dark-mode .tk-content {
   color: var(--twikoo-text);
 }
