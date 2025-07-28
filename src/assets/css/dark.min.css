@@ -85,28 +85,35 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    justify-content: flex-start;
   }
 
-  /* 所有按钮统一基础样式 */
+  /* 所有按钮禁止缩小 */
   .tk-row.actions > * {
-    flex-shrink: 0; /* 防止压缩 */
-  }
-
-  /* 前2个按钮 => 第一行 */
+    flex-shrink: 0;
+  }  
+  
+  .tk-row-actions-start {
+    margin-right: auto; /* 实现左对齐 */
+  }  
+  
+  /* 前2个按钮 => 第一行 
   .tk-row.actions > :nth-child(-n+2) {
     order: 1;
     margin-left: auto;
     transform: translateX(70px);
   }
+  */
 
-  /* 倒数2和3按钮 => 第二行 */
+  /* 倒数2和3按钮 => 第二行
   .tk-row.actions > :nth-last-child(3),
   .tk-row.actions > :nth-last-child(2) {
     order: 2;
-    /*margin-left: auto;*/
     justify-content: flex-end;
   }
+  */
 
+  .tk-input-image,
   .tk-row.actions > :nth-last-child(4) {
     display: none;
   }
