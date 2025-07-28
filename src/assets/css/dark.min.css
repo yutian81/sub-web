@@ -94,7 +94,7 @@
   }  
   
   .tk-row.actions .tk-row-actions-start {
-    margin-right: auto; /* 实现左对齐 */
+    margin-right: auto; /* 左对齐 */
   }  
 
   /* 隐藏元素 */
@@ -103,22 +103,6 @@
     display: none;
   }
   
-  /* 前2个按钮 => 第一行 
-  .tk-row.actions > :nth-child(-n+2) {
-    order: 1;
-    margin-left: auto;
-    transform: translateX(70px);
-  }
-  */
-
-  /* 倒数2和3按钮 => 第二行
-  .tk-row.actions > :nth-last-child(3),
-  .tk-row.actions > :nth-last-child(2) {
-    order: 2;
-    justify-content: flex-end;
-  }
-  */
-
   /* 表情框不被遮挡 */
   .Owo-body {
     position: relative;
