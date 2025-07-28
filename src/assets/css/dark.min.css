@@ -93,9 +93,15 @@
     flex-shrink: 0;
   }  
   
-  .tk-row-actions-start {
+  .tk-row.actions .tk-row-actions-start {
     margin-right: auto; /* 实现左对齐 */
   }  
+
+  /* 隐藏元素 */
+  .tk-row.actions .tk-row-actions-start .tk-input-image,
+  .tk-row.actions > :nth-last-child(4) {
+    display: none;
+  }
   
   /* 前2个按钮 => 第一行 
   .tk-row.actions > :nth-child(-n+2) {
@@ -113,13 +119,8 @@
   }
   */
 
-  .tk-input-image,
-  .tk-row.actions > :nth-last-child(4) {
-    display: none;
-  }
-
   /* 表情框不被遮挡 */
-  .tk-owo-container {
+  .Owo-body {
     position: relative;
     z-index: 100;
   }
