@@ -104,7 +104,7 @@
   }
   
   /* 表情框不被遮挡 */
-  .Owo-body {
+  .OwO-body {
     position: relative;
     z-index: 100;
   }
