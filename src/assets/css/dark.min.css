@@ -12,6 +12,14 @@
   --twikoo-icon-filter: invert(0.8);
 }
 
+.dark-mode {
+  background-image: url('https://pan.811520.xyz/icon/bg_dark.webp');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+}
+
 /* ======================= */
 /* Twikoo 专属暗黑样式 */
 /* ======================= */
