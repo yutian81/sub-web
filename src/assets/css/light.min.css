@@ -32,6 +32,14 @@ html {
   border-bottom: 0 !important;
 }
 
+.light-mode {
+  background-image: url('https://pan.811520.xyz/icon/bg_light.webp');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+}
+
 .light-mode #rijian,
 .light-mode .channel,
 #canvas-show {
