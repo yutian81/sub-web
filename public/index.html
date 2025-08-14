@@ -16,14 +16,16 @@
   <style>
     /* 全局背景设置 */
     body {
-      background-image: url('https://pan.811520.xyz/icon/back.webp');
+      background-image: url('https://pan.811520.xyz/icon/bg_light.webp');
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
       margin: 0;
       padding: 0;
-      /* 新增：暗黑模式兼容 */
       transition: background 0.3s ease;
+    }
+    .dark-mode body {
+      background-image: url('https://pan.811520.xyz/icon/bg_dark.webp');
     }
   
     /* 暗黑模式降低背景亮度 */
