@@ -55,8 +55,24 @@ envId: 'https://twikoo.24811213.xyz/',  // 此处替换为你自己额 twikoo �
 我没有制作镜像，可以使用肥羊的镜像，但没有评论模块
 
 ```
-docker run -d --restart unless-stopped --privileged=true -p 8090:80 --name sub-web-modify youshandefeiyang/sub-web-modify
+docker run -d --restart unless-stopped -p 8090:80 --name sub-web-modify youshandefeiyang/sub-web-modify
 ```
+
+或使用docker compose
+
+```yaml
+name: sub-web-modify
+services:
+    sub-web-modify:
+        restart: unless-stopped
+        privileged: false
+        ports:
+            - 8090:80
+        container_name: sub-web-modify
+        image: youshandefeiyang/sub-web-modify
+```
+
+运行docker compose: `docker compose up -d`
 
 ## 前端访问示例
 
