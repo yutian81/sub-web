@@ -37,42 +37,31 @@ services:
 
 ## 前端部署
 
-**【推荐】部署到 Vercel**
+### 【推荐】部署到 Vercel
 
-- Fork 本仓库test分支
+**方法一: 使用环境变量**
+
+- Fork 本仓库，包含test分支
+- 登录vercel，链接仓库的test分支
+- 设置环境变量
+  - VUE_APP_TWIKOO_SRC
+  - VUE_APP_TWIKOO_ENVID=https://twikoo.backend.com
+
+**方法二: 硬编码到代码中**
 
 - 修改 `src/views/Subconverter.vue` 文件约 `1417` 行，将 `envID` 替换为你自己部署的地址
 
 ```js
-envId: 'https://twikoo.24811213.xyz/',  // 此处替换为你自己额 twikoo 地址
+envId: 'https://twikoo.backend.com/',  // 此处替换为你自己额 twikoo 地址
 ```
 
-- 登录 Vercel 链接你 fork 的仓库，以默认参数直接部署
+- 登录 Vercel 链接 fork 的仓库，以默认参数直接部署，无需设置环境变量
 
+**既未改代码也未设置环境变量，则不启用评论功能**
 
-**Docker一键部署**: 原版，无评论功能
+### Docker一键部署
 
-我没有制作镜像，可以使用肥羊的镜像，但没有评论模块
-
-```
-docker run -d --restart unless-stopped -p 8090:80 --name sub-web-modify youshandefeiyang/sub-web-modify
-```
-
-或使用docker compose
-
-```yaml
-name: sub-web-modify
-services:
-    sub-web-modify:
-        restart: unless-stopped
-        privileged: false
-        ports:
-            - 8090:80
-        container_name: sub-web-modify
-        image: youshandefeiyang/sub-web-modify
-```
-
-**Docker一键部署**: 有评论功能，无需修改源码
+**启用评论功能**
 
 ```yml
 services:
@@ -81,13 +70,42 @@ services:
     ports:
       - "8090:80"
     container_name: sub-web-modify
-    image: ghcr.io/yutian81/sub-convert:universal # 使用通用镜像
+    image: ghcr.io/yutian81/sub-convert:latest
     environment:
       - VUE_APP_TWIKOO_SRC=https://cdn.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js
       - VUE_APP_TWIKOO_ENVID=https://twikoo.backend.com
 ```
 
 运行docker compose: `docker compose up -d`
+
+
+**不启用评论功能**
+
+可以直接使用肥羊的镜像
+
+```yaml
+name: sub-web-modify
+services:
+  sub-web-modify:
+    restart: unless-stopped
+    privileged: false
+    ports:
+      - 8090:80
+    container_name: sub-web-modify
+    image: youshandefeiyang/sub-web-modify
+```
+
+**也可以使用我的镜像**
+
+```yml
+services:
+  sub-web-modify:
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+    container_name: sub-web-modify
+    image: ghcr.io/yutian81/sub-convert:latest
+```
 
 ## 前端访问示例
 
