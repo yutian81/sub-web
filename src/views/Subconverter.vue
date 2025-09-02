@@ -1419,10 +1419,10 @@ export default {
 
         // 动态加载 Twikoo JS
         const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
+        script.src = twikooSrc;
         script.onload = () => {
           twikoo.init({
-            envId: 'https://twikoo.24811213.xyz/',
+            envId: twikooEnvId,
             el: '#tcomment',
             path: window.location.pathname,
             visitor: true,
