@@ -1409,21 +1409,30 @@ export default {
           });
     },
     initTwikoo() {
-      // 动态加载 Twikoo JS
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
-      script.onload = () => {
-        twikoo.init({
-          envId: 'https://twikoo.24811213.xyz/',
-          el: '#tcomment',
-          path: window.location.pathname,
-          visitor: true,
-          lang: 'zh-CN',
-          comment: true,
-          pageview: true,
-        });
-      };
-      document.head.appendChild(script);
+      const config = window.VUE_APP_CONFIG || {}; 
+      const twikooSrc = config.VUE_APP_TWIKOO_SRC;
+      const twikooEnvId = config.VUE_APP_TWIKOO_ENVID;
+
+      // 仅当两个配置都存在且不为空时，才初始化 Twikoo
+      if (twikooSrc && twikooEnvId) {
+        this.twikooEnabled = true;
+
+        // 动态加载 Twikoo JS
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
+        script.onload = () => {
+          twikoo.init({
+            envId: 'https://twikoo.24811213.xyz/',
+            el: '#tcomment',
+            path: window.location.pathname,
+            visitor: true,
+            lang: 'zh-CN',
+            comment: true,
+            pageview: true,
+          });
+        };
+        document.head.appendChild(script);
+      }
     }
   }
 };
