@@ -458,8 +458,8 @@ export default {
       backendVersion: "",
       centerDialogVisible: false,
       activeName: 'first',
-      // 是否为 PC 端
-      isPC: true,
+      twikooEnabled: false, //默认关闭评论，匹配环境变量则自动开启
+      isPC: true, // 是否为PC端
       btnBoolean: false,
       options: {
         clientTypes: {
@@ -469,7 +469,7 @@ export default {
           V2Ray: "v2ray",
           Trojan: "trojan",
           ShadowsocksR: "ssr",
-          "混合订阅（mixed）": "mixed",
+          "混合订阅 (mixed)": "mixed",
           Surfboard: "surfboard",
           Quantumult: "quan",
           "Quantumult X": "quanx",
