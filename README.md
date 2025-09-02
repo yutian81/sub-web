@@ -44,7 +44,7 @@ services:
 - Fork 本仓库，包含test分支
 - 登录vercel，链接仓库的test分支
 - 设置环境变量
-  - VUE_APP_TWIKOO_SRC
+  - VUE_APP_TWIKOO_SRC=https://cdn.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js
   - VUE_APP_TWIKOO_ENVID=https://twikoo.backend.com
 
 **方法二: 硬编码到代码中**
