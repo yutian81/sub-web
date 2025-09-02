@@ -423,7 +423,7 @@
     </el-dialog>
 
     <!-- 添加评论区 -->
-    <el-row style="margin-top: 30px">
+    <el-row v-if="twikooEnabled" style="margin-top: 30px">
       <el-col>
         <el-card>
           <div slot="header">
@@ -435,6 +435,7 @@
     </el-row>
   </div>
 </template>
+
 <script>
 const project = process.env.VUE_APP_PROJECT
 const configScriptBackend = process.env.VUE_APP_CONFIG_UPLOAD_BACKEND + '/api.php'
@@ -450,6 +451,7 @@ const tgBotLink = process.env.VUE_APP_BOT_LINK
 const yglink = process.env.VUE_APP_YOUTUBE_LINK
 const bzlink = process.env.VUE_APP_BILIBILI_LINK
 const downld = 'http://' + window.location.host + '/download.html'
+
 export default {
   data() {
     return {
@@ -1408,16 +1410,27 @@ export default {
             this.$message.error("请求后端版本号失败，该后端不可用或网络连接异常！");
           });
     },
+
     initTwikoo() {
-      const config = window.VUE_APP_CONFIG || {}; 
-      const twikooSrc = config.VUE_APP_TWIKOO_SRC;
-      const twikooEnvId = config.VUE_APP_TWIKOO_ENVID;
+      let twikooSrc = '';
+      let twikooEnvId = '';
 
-      // 仅当两个配置都存在且不为空时，才初始化 Twikoo
+      // 优先检查运行时配置 (适用于 Docker)
+      if (window.VUE_APP_CONFIG && window.VUE_APP_CONFIG.VUE_APP_TWIKOO_SRC) {
+        twikooSrc = window.VUE_APP_CONFIG.VUE_APP_TWIKOO_SRC;
+        twikooEnvId = window.VUE_APP_CONFIG.VUE_APP_TWIKOO_ENVID;
+      } 
+      
+      // 如果运行时配置不存在，则回退到检查构建时环境变量 (适用于 Vercel)
+      else if (process.env.VUE_APP_TWIKOO_SRC) {
+        twikooSrc = process.env.VUE_APP_TWIKOO_SRC;
+        twikooEnvId = process.env.VUE_APP_TWIKOO_ENVID;
+      }
+
+      // 只有在获取到有效配置后，才启用并加载评论功能
       if (twikooSrc && twikooEnvId) {
-        this.twikooEnabled = true;
-
-        // 动态加载 Twikoo JS
+        this.twikooEnabled = true; // 设置为 true，让模板中的 v-if 生效
+        // 动态加载 Twikoo 的 JS 脚本
         const script = document.createElement('script');
         script.src = twikooSrc;
         script.onload = () => {
