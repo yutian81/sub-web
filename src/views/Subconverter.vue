@@ -1428,5 +1428,3 @@ export default {
   }
 };
 </script>
-
-
