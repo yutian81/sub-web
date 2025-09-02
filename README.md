@@ -73,7 +73,7 @@ services:
     ports:
       - "8090:80"
     container_name: sub-web-modify
-    image: ghcr.io/yutian81/sub-convert:latest
+    image: ghcr.io/yutian81/sub-convert:test
     environment:
       - VUE_APP_TWIKOO_SRC=https://cdn.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js
       - VUE_APP_TWIKOO_ENVID=https://twikoo.backend.com
@@ -107,7 +107,7 @@ services:
     ports:
       - "8090:80"
     container_name: sub-web-modify
-    image: ghcr.io/yutian81/sub-convert:latest
+    image: ghcr.io/yutian81/sub-convert:test
 ```
 
 ## 前端访问示例
