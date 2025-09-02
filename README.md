@@ -1,4 +1,4 @@
-# sub-web
+# sub-web 带twikoo评论功能
 
 修改自[肥羊的前端](https://github.com/youshandefeiyang/sub-web-modify)，主要不同点：
 
@@ -39,7 +39,7 @@ services:
 
 **【推荐】部署到 Vercel**
 
-- Fork 本仓库
+- Fork 本仓库test分支
 
 - 修改 `src/views/Subconverter.vue` 文件约 `1417` 行，将 `envID` 替换为你自己部署的地址
 
@@ -50,7 +50,7 @@ envId: 'https://twikoo.24811213.xyz/',  // 此处替换为你自己额 twikoo �
 - 登录 Vercel 链接你 fork 的仓库，以默认参数直接部署
 
 
-**Docker一键部署**
+**Docker一键部署**: 原版，无评论功能
 
 我没有制作镜像，可以使用肥羊的镜像，但没有评论模块
 
@@ -70,6 +70,21 @@ services:
             - 8090:80
         container_name: sub-web-modify
         image: youshandefeiyang/sub-web-modify
+```
+
+**Docker一键部署**: 有评论功能，无需修改源码
+
+```yml
+services:
+  sub-web-modify:
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+    container_name: sub-web-modify
+    image: ghcr.io/yutian81/sub-convert:universal # 使用通用镜像
+    environment:
+      - VUE_APP_TWIKOO_SRC=https://cdn.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js
+      - VUE_APP_TWIKOO_ENVID=https://twikoo.backend.com
 ```
 
 运行docker compose: `docker compose up -d`
