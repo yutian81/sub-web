@@ -489,7 +489,7 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
-          "yutian81爪云自建后端":"https://essential-dani-yuzong19-18ce0f92.koyeb.app",
+          "yutian81自建后端":"https://essential-dani-yuzong19-18ce0f92.koyeb.app",
           "CMliu提供(负载均衡)":"https://subapi.cmliussss.net",
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://url.v1.mk",
           "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",          
