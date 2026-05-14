@@ -489,7 +489,7 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
-          "yutian81爪云自建后端":"https://subapi.dayutian.com",
+          "yutian81爪云自建后端":"https://essential-dani-yuzong19-18ce0f92.koyeb.app",
           "CMliu提供(负载均衡)":"https://subapi.cmliussss.net",
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://url.v1.mk",
           "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",          
@@ -500,7 +500,7 @@ export default {
         backendOptions: [
           {value: "https://url.v1.mk"},
           {value: "https://sub.d1.mk"},
-          {value: "https://subapi.dayutian.com"},
+          {value: "https://essential-dani-yuzong19-18ce0f92.koyeb.app"},
           {value: "https://subapi.cmliussss.net"},
           {value: "https://www.nameless13.com"},
           {value: "https://sub.xeton.dev"},
@@ -906,7 +906,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://subapi.dayutian.com" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "https://essential-dani-yuzong19-18ce0f92.koyeb.app" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
         remoteConfig: "https://raw.githubusercontent.com/yutian81/edgetunnel-cmliu/main/clash-config/mini_country_balance_eu.ini",
         excludeRemarks: "",
