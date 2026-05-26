@@ -1411,7 +1411,7 @@ export default {
     initTwikoo() {
       // 动态加载 Twikoo JS
       const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js';
+      script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.all.min.js';
       script.onload = () => {
         twikoo.init({
           envId: 'https://twikoo.24811213.xyz/',
