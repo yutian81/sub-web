@@ -93,7 +93,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
   }
 
   /* 所有按钮禁止缩小 */
@@ -102,8 +103,17 @@
   }  
   
   .tk-row.actions .tk-row-actions-start {
-    margin-right: auto; /* 左对齐 */
-  }  
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tk-row.actions .tk-row-actions-end {
+    margin-left: auto; /* 确保即使换行，按钮也会贴在右边 */
+    display: flex;
+    justify-content: flex-end;
+  }
 
   /* 隐藏元素 */
   .tk-row.actions .tk-row-actions-start .tk-input-image,
