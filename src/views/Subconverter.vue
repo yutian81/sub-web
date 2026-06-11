@@ -450,7 +450,7 @@ const advancedVideo = process.env.VUE_APP_ADVANCED_VIDEO
 const tgBotLink = process.env.VUE_APP_BOT_LINK
 const yglink = process.env.VUE_APP_YOUTUBE_LINK
 const bzlink = process.env.VUE_APP_BILIBILI_LINK
-const twikooSrc = process.env.VUE_APP_TWIKOO_SRC || 'https://cdn.jsdelivr.net/npm/twikoo@1.7.11/dist/twikoo.all.min.js'
+const twikooSrc = process.env.VUE_APP_TWIKOO_SRC || 'https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.all.min.js'
 const twikooEnvId = process.env.VUE_APP_TWIKOO_ENVID || 'https://twikoo.24811213.xyz'
 const downld = 'http://' + window.location.host + '/download.html'
 
