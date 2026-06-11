@@ -1409,12 +1409,16 @@ export default {
           });
     },
     initTwikoo() {
+      // 读取环境变量，做兜底兼容
+      const twikooSrc = process.env.VUE_APP_TWIKOO_SRC || 'https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.all.min.js'
+      const twikooEnvId = process.env.VUE_APP_TWIKOO_ENVID || 'https://twikoo.24811213.xyz/'
+      
       // 动态加载 Twikoo JS
       const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.all.min.js';
+      script.src = twikooSrc;
       script.onload = () => {
         twikoo.init({
-          envId: 'https://twikoo.24811213.xyz/',
+          envId: twikooEnvId,
           el: '#tcomment',
           path: window.location.pathname,
           visitor: true,
