@@ -103,16 +103,18 @@
   }  
   
   .tk-row.actions .tk-row-actions-start {
-    margin-right: auto;
+    margin-right: auto; /* 整体靠左 */
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* 内部元素靠左紧凑排列 */
   }
 
-  /* .tk-row.actions .tk-row-actions-end {
-    margin-left: auto;
+  .tk-row.actions .tk-row-actions-end {
+    margin-left: auto; /* 整体靠右 */
     display: flex;
-    justify-content: flex-end;
-  } */
+    align-items: center;
+    justify-content: flex-end; /* 内部元素靠右紧凑排列 */
+  }
 
   /* 隐藏元素 */
   .tk-row.actions .tk-row-actions-start .tk-input-image,
