@@ -451,6 +451,8 @@ const tgBotLink = process.env.VUE_APP_BOT_LINK
 const yglink = process.env.VUE_APP_YOUTUBE_LINK
 const bzlink = process.env.VUE_APP_BILIBILI_LINK
 const downld = 'http://' + window.location.host + '/download.html'
+const twikooJsCdn = process.env.VUE_APP_TWIKOO_JS_CDN
+const twikooEnvId = process.env.VUE_APP_TWIKOO_ENV_ID
 
 export default {
   data() {
@@ -1413,10 +1415,10 @@ export default {
     initTwikoo() {
       // 动态加载 Twikoo JS
       const script = document.createElement('script');
-      script.src = "https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.all.min.js";
+      script.src = twikooJsCdn;
       script.onload = () => {
         twikoo.init({
-          envId: "https://twikoo.24811213.xyz/",
+          envId: twikooEnvId,
           el: '#tcomment',
           path: window.location.pathname,
           visitor: true,
