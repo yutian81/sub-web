@@ -92,7 +92,7 @@
   .tk-row.actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
   }
